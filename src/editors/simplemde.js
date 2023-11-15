@@ -73,9 +73,10 @@ export class SimplemdeEditor extends StringEditor {
 
   /* Ported from https://codemirror.net/addon/display/autorefresh.js */
   startListening (cm, state) {
+    const self = this;
     function check () {
       if (cm.display.wrapper.offsetHeight) {
-        this.stopListening(cm, state)
+        self.stopListening(cm, state)
         if (cm.display.lastWrapHeight !== cm.display.wrapper.clientHeight) {
           cm.refresh()
         }
